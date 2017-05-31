@@ -1,7 +1,7 @@
 'use strict'
 
 const _ = require('lodash')
-const API = require('../API')
+const API = require('../api')
 
 // All the GET routes for the API
 const routes = {
