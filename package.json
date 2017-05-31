@@ -1,0 +1,40 @@
+{
+  "name": "boiler",
+  "version": "1.0.0",
+  "description": "boiler",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "author": "Colton Clemmer",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/heavensound-/game#readme",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.1",
+    "babel-preset-es2015": "^6.22.0",
+    "body-parser": "^1.16.1",
+    "bootstrap": "^3.3.7",
+    "compression": "^1.6.2",
+    "ejs": "^2.5.5",
+    "express": "^4.14.1",
+    "html-loader": "^0.4.4",
+    "jquery": "^3.1.1",
+    "knockout": "^3.4.1",
+    "knockout-punches": "^0.5.1",
+    "ko-component-router": "^4.4.4",
+    "lodash": "^4.17.4",
+    "mongodb": "^2.2.24",
+    "npmlog": "^4.0.2",
+    "promise": "^7.1.1",
+    "socket.io": "^1.7.3",
+    "socket.io-client": "^1.7.3",
+    "sweetalert2": "^6.4.2",
+    "toastr": "^2.1.2",
+    "uuid": "^3.0.1",
+    "validator": "^6.2.1",
+    "webpack": "^2.2.1",
+    "webpack-dev-middleware": "^1.10.0"
+  }
+}
