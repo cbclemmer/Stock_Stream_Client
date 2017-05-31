@@ -1,10 +1,14 @@
 {
-  "name": "boiler",
+  "name": "stock-stream",
   "version": "1.0.0",
-  "description": "boiler",
+  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:orbweaver-/stock-stream.git"
   },
   "author": "Colton Clemmer",
   "license": "ISC",
