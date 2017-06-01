@@ -1,11 +1,19 @@
-<h1>Stock Stream Portfolio</h1>
 {{#if ready}}
 <h4>Cash: ${{ cash }}</h4>
 <h4>Number of stocks: {{ assets().length }}</h4>
 <h4>Number of shares: {{ numShares }}</h4>
 <h4>Last Updated: {{ timeStamp }}</h4>
+<a href="#" data-bind="toggle: showHelp">Help</a>
+<div class="alert alert-info" data-bind="visible: showHelp">
+  <b>HELP:</b>
+  <ul>
+    <li>Click a column to sort by it or change the order.</li>
+    <li>The search box searches by symbol</li>
+  </ul>
+</div>
+
 <div class="form-group">
-  <input type="text" class="form-control" data-bind="textInput: searchText" style="width: 350px"/>
+  <input type="text" class="form-control" placeholder="Search..." data-bind="textInput: searchText" style="width: 350px"/>
 </div>
 <table>
     <tr>
