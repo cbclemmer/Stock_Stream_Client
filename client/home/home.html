@@ -2,17 +2,41 @@
 <h4>Cash: ${{ cash }}</h4>
 <table>
     <tr>
-        <th style="width: 100px">
+        <th style="width: 100px; cursor: pointer" data-bind="click: sortSymbol">
             Symbol
+            {{#if sort() === 'symbol'}}
+            {{#if desc}}
+            <i class="fa fa-caret-down" aria-hidden="true"></i>
+            {{/if}}
+            {{#if !desc()}}
+            <i class="fa fa-caret-up" aria-hidden="true"></i>
+            {{/if}}
+            {{/if}}
         </th>
-        <th style="width: 100px">
+        <th style="width: 100px; cursor: pointer" data-bind="click: sortShares">
             Shares
+            {{#if sort() === 'shares'}}
+            {{#if desc}}
+            <i class="fa fa-caret-down" aria-hidden="true"></i>
+            {{/if}}
+            {{#if !desc()}}
+            <i class="fa fa-caret-up" aria-hidden="true"></i>
+            {{/if}}
+            {{/if}}
         </th>
-        <th style="width: 100px">
+        <th style="width: 150px; cursor: pointer" data-bind="click: sortCost">
             Average Cost
+            {{#if sort() === 'avgCost'}}
+            {{#if desc}}
+            <i class="fa fa-caret-down" aria-hidden="true"></i>
+            {{/if}}
+            {{#if !desc()}}
+            <i class="fa fa-caret-up" aria-hidden="true"></i>
+            {{/if}}
+            {{/if}}
         </th>
     </tr>
-    <!-- ko foreach: assets-->
+    <!-- ko foreach: assets.sorted-->
     <tr>
         <td>
             {{ symbol }}
@@ -21,7 +45,7 @@
             {{ shares }}
         </td>
         <td>
-            {{ avgCost }}
+            ${{ avgCost }}
         </td>
     </tr>
     <!--/ko-->

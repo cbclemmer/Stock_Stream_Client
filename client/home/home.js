@@ -1,15 +1,37 @@
 import api from 'api'
 import ko from 'knockout'
+import _ from 'lodash'
 
 export default class {
   constructor() {
-    this.ready =ko.observable(false)
-    
+    this.sort = ko.observable('symbol')
+    this.desc = ko.observable(false)
+    this.ready = ko.observable(false)
+
     api.get('/api/portfolio')
     .then((res) => {
       this.cash = ko.observable(res.cashBalance)
       this.assets = ko.observableArray(res.assets)
+      this.assets.sorted = ko.pureComputed(() =>
+        _.orderBy(this.assets(), this.sort(), this.desc() ? 'desc' : 'asc'))
       this.ready(true)
     })
+  }
+
+  sortSymbol() {
+    this.sortChange('symbol')
+  }
+
+  sortShares() {
+    this.sortChange('shares')
+  }
+
+  sortCost() {
+    this.sortChange('avgCost')
+  }
+
+  sortChange(sort) {
+    this.sort(sort)
+    this.desc(!this.desc())
   }
 }
