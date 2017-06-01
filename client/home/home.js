@@ -5,7 +5,6 @@ export default class {
   constructor() {
     this.ready =ko.observable(false)
     
-    // Test API
     api.get('/api/portfolio')
     .then((res) => {
       this.cash = ko.observable(res.cashBalance)

@@ -13,6 +13,7 @@ ko.punches.interpolationMarkup.enable();
 ko.components.register('app', require('./app'))
 
 ko.components.register('home', require('./home'))
+ko.components.register('404', require('./404'))
 
 require('./web_modules')
 
