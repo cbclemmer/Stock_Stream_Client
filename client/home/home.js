@@ -1,19 +1,16 @@
 import api from 'api'
-import io from 'socket'
+import ko from 'knockout'
 
 export default class {
   constructor() {
+    this.ready =ko.observable(false)
+    
     // Test API
-    api.get('/api/ping')
+    api.get('/api/portfolio')
     .then((res) => {
-      console.log('API: ', res)
-    })
-    // Test socket
-    io.then((socket) => {
-      socket.emit('test1', { ping: true })
-      socket.on('test2', (data) => {
-        console.log('SOCKET: ', data)
-      })
+      this.cash = ko.observable(res.cashBalance)
+      this.assets = ko.observableArray(res.assets)
+      this.ready(true)
     })
   }
 }

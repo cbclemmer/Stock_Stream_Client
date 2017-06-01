@@ -7,7 +7,7 @@ const API = require('../api')
 const routes = {
   // EX: '/api/foo/bar: API.foo.bar'
   '/api/ping': API.input.ping,
-  '/api/input': API.input.get
+  '/api/portfolio': API.portfolio.get
 }
 
 module.exports = (app, db) => {

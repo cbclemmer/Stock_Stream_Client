@@ -1,21 +1,19 @@
 'use strict'
+const http = require('http')
+const _ = require('lodash')
+const config = require('../config')
 
-const ping = (req, res, db, cb) => {
-  cb({ pong: true })
-}
-
-const get = (req, res, db, cb) => {
-  console.log('GET')
+module.exports = (req, res, db, cb) => {
   const raw = db.collection('raw')
-  console.log(req.query)
+  
+  if (req.get('x-amz-sns-message-type') === 'SubscriptionConfirmation') {
+    console.log('SUB URL: ', req.body.SubscribeURL)
+  } else {
+    if (req.get('x-amz-sns-subscription-arn') === config.snsSubscription) {
+      raw.insertOne(_.extend({
+        TimeStamp: new Date(req.body.TimeStamp)
+      }, JSON.parse(req.body.Message)))
+    }
+  }
   cb({ saved: true })
 }
-
-const post = (req, res, db, cb) => {
-  console.log('POST')
-  const raw = db.collection('raw')
-  console.log(req.body)
-  cb({ saved: true })
-}
-
-module.exports = { get, post }

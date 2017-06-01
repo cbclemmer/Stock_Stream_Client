@@ -29,7 +29,7 @@ var allowCrossDomain = function(req, res, next) {
 }
 
 app.use(webpackDevMiddleware(compiler, { noInfo: true }))
-app.use(bodyParser.json())
+app.use(bodyParser.json({ strict: false, type: '*/*' }))
 app.use(bodyParser.urlencoded())
 app.get(/node_modules/, (req, res) => res.sendFile(path.resolve(__dirname, req.path.substring(1))))
 app.get(/client/, (req, res) => res.sendFile((path.resolve(__dirname, '../' + req.path.substring(1)))))
