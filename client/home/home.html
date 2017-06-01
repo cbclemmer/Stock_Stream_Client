@@ -3,12 +3,15 @@
 <h4>Number of stocks: {{ assets().length }}</h4>
 <h4>Number of shares: {{ numShares }}</h4>
 <h4>Last Updated: {{ timeStamp }}</h4>
-<a href="#" data-bind="toggle: showHelp">Help</a>
+<p>
+  <a href="#" data-bind="toggle: showHelp">Help</a>
+</p>
 <div class="alert alert-info" data-bind="visible: showHelp">
   <b>HELP:</b>
   <ul>
     <li>Click a column to sort by it or change the order.</li>
-    <li>The search box searches by symbol</li>
+    <li>The search box searches by symbol.</li>
+    <li>Click help again to close this box.</li>
   </ul>
 </div>
 

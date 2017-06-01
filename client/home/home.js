@@ -8,6 +8,7 @@ export default class {
     this.sort = ko.observable('symbol')
     this.desc = ko.observable(false)
     this.ready = ko.observable(false)
+    this.showHelp = ko.observable(false)
     this.searchText = ko.observable('')
 
     api.get('/api/portfolio')
