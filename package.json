@@ -29,6 +29,7 @@
     "knockout-punches": "^0.5.1",
     "ko-component-router": "^4.4.4",
     "lodash": "^4.17.4",
+    "moment": "^2.18.1",
     "mongodb": "^2.2.24",
     "npmlog": "^4.0.2",
     "promise": "^7.1.1",

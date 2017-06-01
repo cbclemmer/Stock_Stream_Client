@@ -1,5 +1,9 @@
+<h1>Stock Stream Portfolio</h1>
 {{#if ready}}
 <h4>Cash: ${{ cash }}</h4>
+<h4>Number of stocks: {{ assets().length }}</h4>
+<h4>Number of shares: {{ numShares }}</h4>
+<h4>Last Updated: {{ timeStamp }}</h4>
 <div class="form-group">
   <input type="text" class="form-control" data-bind="textInput: searchText" style="width: 350px"/>
 </div>
@@ -38,6 +42,17 @@
             {{/if}}
             {{/if}}
         </th>
+        <th style="width: 150px; cursor: pointer" data-bind="click: sortInvested">
+            Total Invested
+            {{#if sort() === 'totalInvested'}}
+            {{#if desc}}
+            <i class="fa fa-caret-down" aria-hidden="true"></i>
+            {{/if}}
+            {{#if !desc()}}
+            <i class="fa fa-caret-up" aria-hidden="true"></i>
+            {{/if}}
+            {{/if}}
+        </th>
     </tr>
     <!-- ko foreach: assets.shown-->
     <tr>
@@ -48,7 +63,10 @@
             {{ shares }}
         </td>
         <td>
-            ${{ avgCost }}
+            ${{ avgCostString }}
+        </td>
+        <td>
+            ${{ totalInvestedString }}
         </td>
     </tr>
     <!--/ko-->
