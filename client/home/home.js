@@ -7,13 +7,16 @@ export default class {
     this.sort = ko.observable('symbol')
     this.desc = ko.observable(false)
     this.ready = ko.observable(false)
+    this.searchText = ko.observable('')
 
     api.get('/api/portfolio')
     .then((res) => {
       this.cash = ko.observable(res.cashBalance)
       this.assets = ko.observableArray(res.assets)
-      this.assets.sorted = ko.pureComputed(() =>
-        _.orderBy(this.assets(), this.sort(), this.desc() ? 'desc' : 'asc'))
+      this.assets.shown = ko.pureComputed(() => _(this.assets())
+        .orderBy(this.sort(), this.desc() ? 'desc' : 'asc')
+        .filter((a) => new RegExp(this.searchText().toLowerCase()).test(a.symbol.toLowerCase()))
+        .value())
       this.ready(true)
     })
   }

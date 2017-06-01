@@ -1,5 +1,8 @@
 {{#if ready}}
 <h4>Cash: ${{ cash }}</h4>
+<div class="form-group">
+  <input type="text" class="form-control" data-bind="textInput: searchText" style="width: 350px"/>
+</div>
 <table>
     <tr>
         <th style="width: 100px; cursor: pointer" data-bind="click: sortSymbol">
@@ -36,7 +39,7 @@
             {{/if}}
         </th>
     </tr>
-    <!-- ko foreach: assets.sorted-->
+    <!-- ko foreach: assets.shown-->
     <tr>
         <td>
             {{ symbol }}
