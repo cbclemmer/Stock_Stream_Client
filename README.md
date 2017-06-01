@@ -1,5 +1,7 @@
 # Stock Stream Site
 
+Thanks for viewing, any input is appreciated. If you want to get in touch with me, I'm on the [Stock Stream Discord](https://static-cdn.jtvnw.net/jtv_user_pictures/panel-146223958-image-5c4d74bdcc7f5c69-320-320.png) as **@orbweaver#1150**
+
 **Disclaimer:** This product is not associated with the stream in any way except to provide a way to look at the data that is freely available from the Amazon SNS feed.
 
 ## Things that need to be added soon
