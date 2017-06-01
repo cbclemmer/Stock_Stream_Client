@@ -13,7 +13,7 @@ export default class {
 
     api.get('/api/portfolio')
     .then((res) => {
-      this.cash = ko.observable(res.cashBalance)
+      this.cash = ko.observable(parseFloat((res.cashBalance).toFixed(2)).toLocaleString())
       this.assets = ko.observableArray(this.getAssets(res.assets))
       this.timeStamp = ko.observable(moment(new Date(res.timeStamp)).format('MMMM Do YYYY, h:mm:ss a'))
       this.assets.shown = ko.pureComputed(() => _(this.assets())
