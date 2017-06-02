@@ -11,7 +11,7 @@ module.exports = (req, res, db, cb) => {
   } else {
     if (req.get('x-amz-sns-subscription-arn') === config.snsSubscription) {
       raw.insertOne(_.extend({
-        TimeStamp: new Date(req.body.TimeStamp)
+        timeStamp: new Date(req.body.Timestamp)
       }, JSON.parse(req.body.Message)))
     }
   }

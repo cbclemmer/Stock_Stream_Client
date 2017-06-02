@@ -19,9 +19,9 @@
 <div class="form-group">
   <input type="text" class="form-control" placeholder="Search..." data-bind="textInput: searchText" style="width: 350px"/>
 </div>
-<table>
+<table class="table table-striped">
     <tr>
-        <th style="width: 100px; cursor: pointer" data-bind="click: sortSymbol">
+        <th style="cursor: pointer" data-bind="click: sortSymbol">
             Symbol
             {{#if sort() === 'symbol'}}
             {{#if desc}}
@@ -32,7 +32,7 @@
             {{/if}}
             {{/if}}
         </th>
-        <th style="width: 100px; cursor: pointer" data-bind="click: sortShares">
+        <th style="cursor: pointer" data-bind="click: sortShares">
             Shares
             {{#if sort() === 'shares'}}
             {{#if desc}}
@@ -43,7 +43,7 @@
             {{/if}}
             {{/if}}
         </th>
-        <th style="width: 150px; cursor: pointer" data-bind="click: sortCost">
+        <th style="cursor: pointer" data-bind="click: sortCost">
             Average Cost
             {{#if sort() === 'avgCost'}}
             {{#if desc}}
@@ -54,7 +54,7 @@
             {{/if}}
             {{/if}}
         </th>
-        <th style="width: 150px; cursor: pointer" data-bind="click: sortInvested">
+        <th style="cursor: pointer" data-bind="click: sortInvested">
             Total Invested
             {{#if sort() === 'totalInvested'}}
             {{#if desc}}

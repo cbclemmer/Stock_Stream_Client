@@ -9,13 +9,6 @@ const webpackConfig = require('./webpackConfig')
 const webpackDevMiddleware = require('webpack-dev-middleware')
 const webpack = require('webpack')
 
-const p = false
-if(p == 'true') {
-  webpackConfig.plugins = [new webpack.optimize.UglifyJsPlugin({minimize: true})]
-} else {
-  webpackConfig.devtool = 'eval-source-map'
-}
-
 const compiler = webpack(webpackConfig)
 
 const app = express()

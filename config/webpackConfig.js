@@ -1,7 +1,8 @@
 'use strict'
 
 const path = require('path')
-const { ProvidePlugin } = require('webpack')
+const webpack = require('webpack')
+const userConfig = require('../config')
 
 module.exports = {
   entry: path.resolve(__dirname, '../client/index.js'),
@@ -28,11 +29,12 @@ module.exports = {
     ]
   },
   plugins: [
-    new ProvidePlugin({
+    new webpack.ProvidePlugin({
       jQuery: 'jquery',
       $: 'jquery',
       jquery: 'jquery'
-    })
+    }),
+    new webpack.optimize.UglifyJsPlugin({minimize: true})
   ],
   resolve: {
     modules: [
